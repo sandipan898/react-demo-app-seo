@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import {Helmet} from 'react-helmet';
 
 export class PostDetail extends Component {
     state = {
@@ -17,6 +17,11 @@ export class PostDetail extends Component {
                 <h2>{this.state.post.title}</h2>
                 <article>{this.state.post.body}</article>
                 <p><Link to="/">Back to article list</Link></p>
+                <Helmet>
+                    <title>{this.state.post.title}</title>
+                    <meta name="description"
+                    content={this.state.post.body.slice(0, 100)} />
+                </Helmet>
             </div>
         )
     }
